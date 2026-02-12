@@ -35,8 +35,12 @@ The goal of this project is to analyze the sales data of Monday Coffee, a compan
 
 10. **Market Potential Analysis**  
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
-    
 
+    
+    -------------------------------------------------------------------------------------------------------------------------------------------
+    MY FINDINGS
+    -------------------------------------------------------------------------------------------------------------------------------------------
+    
 SELECT * FROM city ;  
 SELECT * FROM products ;  
 SELECT * FROM customers;  
@@ -48,9 +52,12 @@ SELECT * FROM sales;
 -- Q1 
 -- how many people in each city are estimated to consume coffee, given that 25 % of population does ?
 
-SELECT city_name,ROUND(population * 0.25/1000000,2) AS Pop_Cunsume_Coffee ,city_rank
+SELECT city_name,
+ROUND(population * 0.25/1000000,2) AS Pop_Cunsume_Coffee ,
+city_rank
 FROM city
 ORDER BY  population DESC;
+
 
 -- Q2
 -- what is the total revenue generated form the coffee sales across all the cities in the last quaryer of  2023?
@@ -70,6 +77,7 @@ LIMIT 5;
 
 -- Q3 
 -- how many units of each coffee products have been sold?
+
 
 SELECT P.product_name, COUNT(S.sale_id) AS Units_Sold
 FROM  products AS P
@@ -98,7 +106,8 @@ ORDER BY Total_Sales DESC;
 -- Q5 
 -- Provide a list of cities along with their populations and estimated coffee consumers.
 
-SELECT city_name,ROUND(population/1000000,2) AS Population,ROUND((population * 0.25)/1000000,2) AS Est_Population
+SELECT city_name,ROUND(population/1000000,2) AS Population,
+ROUND((population * 0.25)/1000000,2) AS Est_Population
 FROM city
 ORDER BY population DESC ;
 
@@ -184,16 +193,19 @@ ORDER BY Total_Sales DESC;
 /*
 -- Recomendation
 City 1 - Pune
+
 1.Rent is modrate 
 2.sales are good 
 3.rent to customer ratio is good
 
 City 2 - Delhi 
+
 1.Highest est coffee cunsumers
 2.high no of customes which is 68
 3.rent to customer ratio is good
 
 City 3 - jaipur
+
 1.Highest No of customers which is 69
 2.rent to customer ratio is Excellent
 3.Sales are good
